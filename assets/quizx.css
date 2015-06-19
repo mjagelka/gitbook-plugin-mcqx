@@ -1,0 +1,30 @@
+.mcqBox {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+
+	background-color: #EEEEEE;
+	border-radius: 3px;
+
+	-webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
+}
+
+button.btn.submitMCQ {
+	display: inline-block;
+	margin-right: 20px;
+} 
+
+.MCQmessage {
+	display: inline-block;
+} 
+
+.MCQwrong {
+	color: #9E5C5A;
+}
+
+.MCQright {
+	color: #3C763D;
+}

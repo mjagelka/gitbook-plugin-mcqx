@@ -1,0 +1,30 @@
+.mcqBox(id=question.id, data-config=JSON.stringify(question))
+	.container-fluid
+		h5
+			b!=question.title
+		br
+		label.radio-inline
+			input(name=question.id+"_group", type="radio", value="a", checked="checked")
+			b A.   
+			| #{question.a}
+		br
+		label.radio-inline
+			input(name=question.id+"_group", type="radio", value="b")
+			b B.   
+			| #{question.b}
+		br
+		label.radio-inline
+			input(name=question.id+"_group", type="radio", value="c")
+			b C.   
+			| #{question.c}
+		br
+		label.radio-inline
+			input(name=question.id+"_group", type="radio", value="d")
+			b D.   
+			| #{question.d}
+		br
+		br
+		button.btn.btn-primary.submitMCQ Submit
+		.MCQmessage
+		br
+		br
