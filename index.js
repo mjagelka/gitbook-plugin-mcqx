@@ -1,5 +1,4 @@
 var jade = require('jade');
-
 var path = require('path');
 var fs = require('fs');
 

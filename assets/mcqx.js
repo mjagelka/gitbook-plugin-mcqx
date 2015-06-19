@@ -16,18 +16,36 @@
 			return false;
 	};
 
-	var init = function init(){
+	var init = function(){
 
 		$('.mcqBox').each(function(){
 
 			var question = new MultipleChoice($(this).data('config'));
+
+			var $mcqBox = $(this);
+
+			setTimeout(function(){
+				if($('.book').hasClass('color-theme-2')){
+					console.log($('.book').hasClass('color-theme-2'));
+					$mcqBox.addClass('dark');
+				}
+			}, 1);
+
+
+			$('#color-theme-preview-0, #color-theme-preview-1').click(function(){
+				$mcqBox.removeClass('dark');
+			});
+			
+			$('#color-theme-preview-2').click(function(){
+				$mcqBox.addClass('dark');
+			});
 
 			//enable the submit button
 			$(this).find('button.submitMCQ').click(function(){
 
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
 					$(this).parent().find('.MCQmessage').removeClass('MCQwrong').addClass('MCQright').text("Correct!").fadeIn('fast').delay(1000).fadeOut('slow');
-					$(this).removeClass('btn-success').addClass('btn-default').addClass('disabled');
+					$(this).addClass('disabled');
 					$('input[name=' + question.qid + '_group]').attr('disabled',true);
 				}
 				else {
@@ -35,15 +53,12 @@
 				}
 			});
 		});
-
 	};
 
 	require(["gitbook"], function(gitbook) {
-
 		gitbook.events.bind("page.change", function(){
 			init();
 		});
-		
 	});
 
 })();

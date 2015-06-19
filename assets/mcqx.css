@@ -4,7 +4,7 @@
 	padding-right: 10px;
 	padding-left: 10px;
 
-	background-color: #EEEEEE;
+	background-color: #FCFCFC;
 	border-radius: 3px;
 
 	-webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
@@ -12,10 +12,18 @@
 	box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
 }
 
+.mcqBox.dark {
+	background-color: #373b4e;
+}
+
 button.btn.submitMCQ {
 	display: inline-block;
 	margin-right: 20px;
 } 
+
+button.btn.submitMCQ:focus {
+  outline: none;
+}
 
 .MCQmessage {
 	display: inline-block;
