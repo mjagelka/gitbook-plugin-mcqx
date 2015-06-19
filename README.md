@@ -1,6 +1,4 @@
-GitBook Quiz Plugin
+GitBook Multiple Choice Plugin
 ===
 
-This is a plugin for inserting multiple choice and fill-in-the-blanks questions in GitBook.
-
-Analytics features will be added later.
+The plugin is still under development, please check this out later.
