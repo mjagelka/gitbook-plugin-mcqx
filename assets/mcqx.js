@@ -49,7 +49,7 @@
 			$mcqBox.find('.btn.submitMCQ').click(function(){
 
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
-					$mcqBox.find('.MCQmessage').removeClass('MCQwrong').addClass('MCQright').text("Correct.").fadeIn('slow');
+					$mcqBox.find('.MCQmessage').text("Correct.").fadeIn('slow');
 					$(this).removeClass('btn-primary').addClass('btn-default').addClass('disabled');
 
 					if(question.hint)
@@ -57,7 +57,7 @@
 					$('input[name=' + question.qid + '_group]').attr('disabled',true);
 				}
 				else {
-					$mcqBox.find('.MCQmessage').addClass('MCQwrong').fadeIn('slow').text("Wrong answer, try again.").delay(1000).fadeOut('slow');
+					$mcqBox.find('.MCQmessage').fadeIn('slow').text("Wrong answer, try again.").delay(1000).fadeOut('slow');
 				}
 			});
 

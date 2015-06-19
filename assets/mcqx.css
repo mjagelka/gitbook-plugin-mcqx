@@ -35,11 +35,3 @@
 .MCQmessage {
 	display: inline-block;
 }
-
-.MCQwrong {
-	color: #9E5C5A;
-}
-
-.MCQright {
-	color: #3C763D;
-}
