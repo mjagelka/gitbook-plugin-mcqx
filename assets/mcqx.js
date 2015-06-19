@@ -6,10 +6,7 @@
 		this.target = input.target;
 
 		this.title = input.title;
-		this.a = input.a;
-		this.b = input.b;
-		this.c = input.c;
-		this.d = input.d;
+		this.option = input.option;
 	};
 
 	MultipleChoice.prototype.checkAns = function(input){
@@ -29,14 +26,12 @@
 			$(this).find('button.submitMCQ').click(function(){
 
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
-					$(this).parent().find('.MCQmessage').removeClass('MCQwrong').addClass('MCQright').text("Correct!");
-					$(this).removeClass('btn-primary').addClass('btn-default').addClass('disabled');
+					$(this).parent().find('.MCQmessage').removeClass('MCQwrong').addClass('MCQright').text("Correct!").fadeIn('fast').delay(1000).fadeOut('slow');
+					$(this).removeClass('btn-success').addClass('btn-default').addClass('disabled');
 					$('input[name=' + question.qid + '_group]').attr('disabled',true);
-					if(question.target && sectionToggle)
-						sectionToggle(question.target);
 				}
 				else {
-					$(this).parent().find('.MCQmessage').addClass('MCQwrong').text("Wrong answer, try again.");
+					$(this).parent().find('.MCQmessage').addClass('MCQwrong').fadeIn('fast').text("Wrong answer, try again.").delay(1000).fadeOut('slow');
 				}
 			});
 		});

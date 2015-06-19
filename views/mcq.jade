@@ -6,25 +6,26 @@
 		label.radio-inline
 			input(name=question.id+"_group", type="radio", value="a", checked="checked")
 			b A.   
-			| #{question.a}
+			| #{question.option['a']}
 		br
 		label.radio-inline
 			input(name=question.id+"_group", type="radio", value="b")
 			b B.   
-			| #{question.b}
+			| #{question.option['b']}
 		br
 		label.radio-inline
 			input(name=question.id+"_group", type="radio", value="c")
 			b C.   
-			| #{question.c}
+			| #{question.option['c']}
 		br
 		label.radio-inline
 			input(name=question.id+"_group", type="radio", value="d")
 			b D.   
-			| #{question.d}
+			| #{question.option['d']}
 		br
 		br
-		button.btn.btn-primary.submitMCQ Submit
+		button.btn.btn-success.submitMCQ
+			b Submit
 		.MCQmessage
 		br
 		br
