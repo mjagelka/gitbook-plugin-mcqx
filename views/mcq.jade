@@ -2,7 +2,7 @@
 	.container-fluid
 		h5
 			b!=question.title
-		br
+		.hint_message
 		label.radio-inline
 			input(name=question.id+"_group", type="radio", value="a", checked="checked")
 			b A.   
@@ -24,8 +24,7 @@
 			| #{question.option['d']}
 		br
 		br
-		button.btn.btn-info.submitMCQ
-			b Submit
+		.MCQbutton
 		.MCQmessage
 		br
 		br

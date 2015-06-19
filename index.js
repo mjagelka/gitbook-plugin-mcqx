@@ -21,7 +21,7 @@ module.exports = {
     blocks: {
 
         mcq: {
-            blocks: ["title", "a", "b", "c", "d", "e", "f", "g", "h"],
+            blocks: ["title", "a", "b", "c", "d", "e", "f", "g", "h", "hint"],
             process: function(blk) {
                 var mcqView = fs.readFileSync(path.resolve(__dirname, "./views/mcq.jade"));
                 var question = {id:'', ans:'', option:[]};
@@ -30,8 +30,7 @@ module.exports = {
                 question.ans = blk.kwargs.ans.trim();
 
                 blk.blocks.forEach(function(item){
-                    question[item.name] = item.body.trim();
-
+            
                     if(item.name == 'a' )       question.option['a'] = item.body.trim();
                     else if(item.name == 'b' )  question.option['b'] = item.body.trim();
                     else if(item.name == 'c' )  question.option['c'] = item.body.trim();
@@ -40,6 +39,8 @@ module.exports = {
                     else if(item.name == 'f' )  question.option['f'] = item.body.trim();
                     else if(item.name == 'g' )  question.option['g'] = item.body.trim();
                     else if(item.name == 'h' )  question.option['h'] = item.body.trim();
+                    else
+                        question[item.name] = item.body.trim();
                 });
 
                 return jade.render(mcqView, {question: question});

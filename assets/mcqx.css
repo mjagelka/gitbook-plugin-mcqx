@@ -16,12 +16,19 @@
 	background-color: #373b4e;
 }
 
-button.btn.submitMCQ {
+.hint_message {
+	color: grey;
+	display: none;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.MCQbutton {
 	display: inline-block;
 	margin-right: 20px;
 } 
 
-button.btn.submitMCQ:focus {
+.MCQbutton > button:focus {
   outline: none;
 }
 
