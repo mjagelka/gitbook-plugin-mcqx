@@ -3,8 +3,6 @@ var jade = require('jade');
 var path = require('path');
 var fs = require('fs');
 
-var mcqCount;
-
 module.exports = {
 
     // Extend ebook resources and html
@@ -12,12 +10,11 @@ module.exports = {
         assets: "./assets",
         css: [
             "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css",
-            "quizx.css"
+            "mcqx.css"
         ],
         js: [
             "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js",
-            "http://www.parsecdn.com/js/parse-1.4.2.min.js",
-            "quizx.js"
+            "mcqx.js"
         ]
     },
 
@@ -50,14 +47,8 @@ module.exports = {
                         question.d = item.body.trim();
                 });
 
-                return jade.render(mcqView, {question: question, number: mcqCount++});
+                return jade.render(mcqView, {question: question});
             }
-        }
-    },
-
-    hooks: {
-
-        "init": function(){
         }
     }
 };
