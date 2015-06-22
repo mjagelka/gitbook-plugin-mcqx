@@ -3,11 +3,12 @@
 	function MultipleChoice(input){ //a class for each multiple choice questions
 		this.qid = input.id;
 		this.ans = input.ans;
-		this.target = input.target;
 
 		this.title = input.title;
 		this.option = input.option;
-		this.hint = input.hint;
+
+		if(input.hint)
+			this.hint = input.hint;
 	};
 
 	MultipleChoice.prototype.checkAns = function(input){
