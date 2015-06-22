@@ -13,6 +13,7 @@ module.exports = {
         ],
         js: [
             "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js",
+            "js.cookie.js",
             "mcqx.js"
         ]
     },

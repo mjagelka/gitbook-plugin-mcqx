@@ -36,3 +36,8 @@
 	margin-top: 20px;
 	display: none;
 }
+
+.done-icon {
+	margin-left: 15px;
+	display: inline-block;
+}

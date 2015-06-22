@@ -46,16 +46,30 @@
 			if(question.hint)
 				$mcqBox.find('.MCQbutton').append('&nbsp;<button class="btn btn-info hintMCQ"><b>Hint</b></button>');
 
+			if(Cookies.get(question.qid)) { //check if the question is already answered before
+
+				//disable the question if it is already answered
+				$mcqBox.find('.btn.submitMCQ').removeClass('btn-primary').addClass('btn-default disabled');
+				if(question.hint)	$mcqBox.find('.btn.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
+				$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
+
+				$mcqBox.find('.MCQmessage').text('You had already answered this question.').show('slow');
+			}
+
 			//enable the submit button
 			$mcqBox.find('.btn.submitMCQ').click(function(){
 
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
+
+					Cookies.set(question.qid, true);//planting a cookie
+
 					$mcqBox.find('.MCQmessage').text("Correct.").show('slow');
-					$(this).removeClass('btn-primary').addClass('btn-default').addClass('disabled');
+					$(this).removeClass('btn-primary').addClass('btn-default disabled');
 
 					if(question.hint)
-						$(this).siblings('.hintMCQ').removeClass('btn-info').addClass('btn-default').addClass('disabled');
-					$('input[name=' + question.qid + '_group]').attr('disabled',true);
+						$(this).siblings('.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
+
+					$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
 				}
 				else {
 					$mcqBox.find('.MCQmessage').text("Wrong answer, try again.").show('slow').delay(1000).hide('slow');
@@ -64,7 +78,7 @@
 
 			if(question.hint)
 				$mcqBox.find('.btn.hintMCQ').click(function(){
-					$(this).removeClass('btn-info').addClass('btn-default').addClass('disabled');
+					$(this).removeClass('btn-info').addClass('btn-default disabled');
 					$mcqBox.find('.hint_message').text('('+question.hint+')').show('slow');
 				});
 		});
