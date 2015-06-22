@@ -39,7 +39,7 @@ Each multiple choice question has this basic syntax:
 {%b%} Second option
 {%c%} Third option
 {%d%} Fourth option
-{%hint%} <!-- optional --> I'll give you a hint: the answer is A. 
+{%hint%} I'll give you a hint: the answer is A. 
 {%endmcq%}
 ```
 
