@@ -29,6 +29,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.1 releases:
+	* 0.1.2: Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
 	* 0.1.1: Improved options shuffling algorithm. 
 	* 0.1.0: You can now randomize order of options and include questions with up to 8 options.
 
