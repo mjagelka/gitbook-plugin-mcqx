@@ -8,7 +8,7 @@
     },
     "keywords": ["quiz", "gitbook", "multiple choice", "mc", "interactive"],
     "engines": {
-        "gitbook": "2.x.x"
+        "gitbook": ">=2.x.x"
     },
     "homepage": "https://github.com/ymcatar/gitbook-plugin-mcqx",
     "repository": {
