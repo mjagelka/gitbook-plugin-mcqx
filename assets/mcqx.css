@@ -25,7 +25,6 @@
 .MCQbutton {
 	display: inline-block;
 	margin-top: 15px;
-	margin-right: 20px;
 } 
 
 .MCQbutton > button:focus {
@@ -39,5 +38,13 @@
 
 .done-icon {
 	margin-left: 15px;
+	display: inline-block;
+}
+
+.submitMCQ {
+	margin-right: 10px;
+}
+
+.MCQoption {
 	display: inline-block;
 }

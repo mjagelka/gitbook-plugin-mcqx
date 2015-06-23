@@ -22,29 +22,30 @@ module.exports = {
     blocks: {
 
         mcq: {
-            blocks: ["title", "a", "b", "c", "d", "e", "f", "g", "h", "hint"],
+            blocks: ["title", "o1", "o2", "o3", "o4", "o5", "o6", "o7", "o8", "hint"],
             process: function(blk) {
-                var mcqView = fs.readFileSync(path.resolve(__dirname, "./views/mcq.jade"));
-                var question = {id:'', ans:'', option:[]};
+
+                var question = {id:'', ans:'', count: 0, option:[]};
 
                 question.id = blk.kwargs.id.trim();
                 question.ans = blk.kwargs.ans.trim();
+                question.count = blk.kwargs.count || 4;
+                question.random = blk.kwargs.random || false;
 
                 if(blk.kwargs.target) question.target = blk.kwargs.target.trim();
 
                 blk.blocks.forEach(function(item){
-            
-                    if(item.name == 'a' )       question.option['a'] = item.body.trim();
-                    else if(item.name == 'b' )  question.option['b'] = item.body.trim();
-                    else if(item.name == 'c' )  question.option['c'] = item.body.trim();
-                    else if(item.name == 'd' )  question.option['d'] = item.body.trim();
-                    else if(item.name == 'e' )  question.option['e'] = item.body.trim();
-                    else if(item.name == 'f' )  question.option['f'] = item.body.trim();
-                    else if(item.name == 'g' )  question.option['g'] = item.body.trim();
-                    else if(item.name == 'h' )  question.option['h'] = item.body.trim();
+                    var alphabet = ['o1','o2','o3','o4','o5','o6','o7','o8'];
+                    if(item.body && alphabet.indexOf(item.name) >= 0)
+                        question.option.push({'id':item.name, 'body':item.body.trim()});
                     else
                         question[item.name] = item.body.trim();
                 });
+
+                // select different template for website / pdf
+                var mcqView = (this.generator === 'website'? 
+                    fs.readFileSync(path.resolve(__dirname, "./views/mcq.jade")):
+                    fs.readFileSync(path.resolve(__dirname, "./views/mcq_pdf.jade")));
 
                 return jade.render(mcqView, {question: question});
             }

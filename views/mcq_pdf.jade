@@ -1,0 +1,11 @@
+hr
+
+b Question: #{question.title}
+if(question.hint)
+	p (HINT: #{question.hint})
+
+-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+ul
+	each option, i in question.option
+		li #{'('+alphabet[i]+') '+option.body}	
+hr

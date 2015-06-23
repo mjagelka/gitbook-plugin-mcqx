@@ -3,25 +3,20 @@
 		h5
 			b!=question.title
 		.hint_message
-		label.radio-inline
-			input(name=question.id+"_group", type="radio", value="a", checked="checked")
-			b A.   
-			| #{question.option['a']}
-		br
-		label.radio-inline
-			input(name=question.id+"_group", type="radio", value="b")
-			b B.   
-			| #{question.option['b']}
-		br
-		label.radio-inline
-			input(name=question.id+"_group", type="radio", value="c")
-			b C.   
-			| #{question.option['c']}
-		br
-		label.radio-inline
-			input(name=question.id+"_group", type="radio", value="d")
-			b D.   
-			| #{question.option['d']}
-		br
+
+		-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+		-for(var i=0; i<question.count; i++)
+			label.radio-inline
+				input(name=question.id+"_group", type="radio")
+				b #{alphabet[i]}. 
+				.MCQoption(class='ansHere'+i)
+			br
+
 		.MCQbutton
+			button.btn.btn-primary.submitMCQ 
+				b Submit
+			-if(question.hint)
+				button.btn.btn-info.hintMCQ
+					b Hint
+
 		.alert.MCQmessage
