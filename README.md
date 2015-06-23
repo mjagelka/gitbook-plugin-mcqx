@@ -10,6 +10,7 @@ This is a multiple choice plugin developed for GitBook, packed with features inc
 	* Cookies support: answered question will be disabled.
 	* Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
 
+
 * To be implemented:
 	* Randomize order of choice. (optional)
 	* Include markdown support for question title and choices.
@@ -26,6 +27,7 @@ The plugin is still in active development, so the syntax is subjected to changed
 ## Changelog
 
 * 0.1 releases:
+	* 0.0.4: Fixed bug related to ```gitbook-plugin-sectionx``` integration.
 	* 0.0.3: Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
 	* 0.0.2: Added cookies support: answered question will be disabled.
 	* 0.0.1: Initial release.
@@ -49,6 +51,7 @@ The "mcq" tag (line 1) must have the following arguments for it to work:
 
 * **id**: a *unique* identifier for each multiple chocie question (if it is not unique, horrible bugs awaits.)
 * **ans**: the id of correct option (possible values: ```a```,```b```,```c```,```d```.)
+* **target**: (optional, to be used together with ```gitbook-plugin-sectionx```) id of the section to be opened when the correct answer is chosen.
 
 The content of the multiple choice question is included in the book as a sub-block for the mcq tag (line 2 - 7).
 
