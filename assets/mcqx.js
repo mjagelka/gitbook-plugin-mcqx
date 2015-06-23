@@ -20,14 +20,10 @@
 			return false;
 	};
 
-	Array.prototype.shuffle = function() { // Durstenfeld shuffle, thanks stack overflow for this part
-	    for (var i = this.length - 1; i > 0; i--) {
-	        var j = Math.floor(Math.random() * (i + 1));
-	        var temp = this[i];
-	        this[i] = this[j];
-	        this[j] = temp;
-	    }
-	    return this;
+	Array.prototype.shuffle = function() { //thanks stack overflow for this part
+		var o = this;
+    	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    	return o;
 	}
 
 	var init = function(){
@@ -42,16 +38,15 @@
 			if(question.random || question.count < question.option.length){
 				var optionsToShow = [], randomIndex = [];
 				for(var i=0; i<question.option.length; i++)
-					randomIndex.push(i);
+					if(question.option[i].id != question.ans)
+						randomIndex.push(i);
+					else
+						optionsToShow.push(question.option[i]); //push the correct answer
 
-				randomIndex = randomIndex.shuffle().slice(0, question.count+1);
-				console.log(randomIndex);
+				randomIndex = randomIndex.shuffle().slice(0, question.count-1);
 
-				question.option.forEach(function(option, i){
-					if(option.id === question.ans)
-						optionsToShow.push(option);
-					else if(optionsToShow.length < question.count && randomIndex.indexOf(i) >= 0)
-						optionsToShow.push(option);
+				randomIndex.forEach(function(i){
+					optionsToShow.push(question.option[i]);
 				});
 
 				optionsToShow = optionsToShow.shuffle();

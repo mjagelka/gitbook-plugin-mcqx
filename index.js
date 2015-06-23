@@ -29,7 +29,6 @@ module.exports = {
 
                 question.id = blk.kwargs.id.trim();
                 question.ans = blk.kwargs.ans.trim();
-                question.count = blk.kwargs.count || 4;
                 question.random = blk.kwargs.random || false;
 
                 if(blk.kwargs.target) question.target = blk.kwargs.target.trim();
@@ -42,6 +41,8 @@ module.exports = {
                         question[item.name] = item.body.trim();
                 });
 
+                question.count = blk.kwargs.count || question.option.length;
+                
                 // select different template for website / pdf
                 var mcqView = (this.generator === 'website'? 
                     fs.readFileSync(path.resolve(__dirname, "./views/mcq.jade")):
