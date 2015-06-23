@@ -7,8 +7,8 @@
 		this.title = input.title;
 		this.option = input.option;
 
-		if(input.hint)
-			this.hint = input.hint;
+		if(input.hint)	this.hint = input.hint;
+		if(input.target) this.target = input.target;
 	};
 
 	MultipleChoice.prototype.checkAns = function(input){
@@ -54,6 +54,8 @@
 				$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
 
 				$mcqBox.find('.MCQmessage').text('You had already answered this question.').show('slow');
+
+				if(question.target)	sectionToggle(question.target);//toggle the target section
 			}
 
 			//enable the submit button
@@ -70,6 +72,7 @@
 						$(this).siblings('.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
 
 					$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
+					if(question.target)	sectionToggle(question.target);
 				}
 				else {
 					$mcqBox.find('.MCQmessage').text("Wrong answer, try again.").show('slow').delay(1000).hide('slow');

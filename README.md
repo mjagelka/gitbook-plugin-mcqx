@@ -8,6 +8,7 @@ This is a multiple choice plugin developed for GitBook, packed with features inc
 * Completed:
 	* Include hints for the questions.
 	* Cookies support: answered question will be disabled.
+	* Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
 
 * To be implemented:
 	* Randomize order of choice. (optional)
@@ -25,6 +26,7 @@ The plugin is still in active development, so the syntax is subjected to changed
 ## Changelog
 
 * 0.1 releases:
+	* 0.0.3: Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
 	* 0.0.2: Added cookies support: answered question will be disabled.
 	* 0.0.1: Initial release.
 

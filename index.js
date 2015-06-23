@@ -30,6 +30,8 @@ module.exports = {
                 question.id = blk.kwargs.id.trim();
                 question.ans = blk.kwargs.ans.trim();
 
+                if(blk.kwargs.target) question.target = blk.kwargs.target.trim();
+
                 blk.blocks.forEach(function(item){
             
                     if(item.name == 'a' )       question.option['a'] = item.body.trim();
