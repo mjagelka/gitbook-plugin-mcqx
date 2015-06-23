@@ -2,13 +2,13 @@
     "name": "gitbook-plugin-mcqx",
     "description": "Multiple Choice plugin for GitBook packed with interactive features",
     "main": "index.js",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "dependencies": {
         "jade": "*"
     },
     "keywords": ["quiz", "gitbook", "multiple choice", "mc", "interactive"],
     "engines": {
-        "gitbook": ">1.x.x"
+        "gitbook": ">2.x.x"
     },
     "homepage": "https://github.com/ymcatar/gitbook-plugin-mcqx",
     "repository": {
