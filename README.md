@@ -15,11 +15,13 @@ This is a multiple choice plugin developed for GitBook, packed with interactive 
 	* Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
 	* Randomize order of choice.
 	* Allow adding 2-8 options.
+	* Allow addition of answer description.
+	* Dark theme support.
+	* .pdf, .mobi, .epub export supported.
 
 
 * To be implemented:
 	* Include markdown support for question title and choices.
-	* Allow addition of answer description.
 	* ...
 
 Another version of the plugin featuring analytics are also in the works. This version will not include this feature. It will be published as a separate plugin.
@@ -29,6 +31,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.1 releases:
+	* 0.1.3: Allow addition of answer description. Improved dark theme appearance.
 	* 0.1.2: Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
 	* 0.1.1: Improved options shuffling algorithm. 
 	* 0.1.0: You can now randomize order of options and include questions with up to 8 options.

@@ -11,6 +11,7 @@
 		if(input.target) this.target = input.target;
 		if(input.count) this.count = input.count;
 		if(input.random) this.random = input.random;
+		if(input.message) this.message = input.message;
 	};
 
 	MultipleChoice.prototype.checkAns = function(input){
@@ -76,9 +77,6 @@
 				$mcqBox.addClass('dark');
 			});
 
-			// add the button  ---------------------------
-
-
 			// check if the question is already answered before  ---------------------------
 			if(Cookies.get(question.qid)) {
 
@@ -89,6 +87,7 @@
 
 				$mcqBox.find('.MCQmessage').text('You had already answered this question.').show('slow');
 
+				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
 				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);//toggle the target section
 			}
 
@@ -104,6 +103,9 @@
 
 					if(question.hint)
 						$(this).siblings('.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
+
+					if(question.message)
+						$mcqBox.find('.MCQdescription').text(question.message).show('slow');
 
 					$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
 					if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
@@ -123,9 +125,7 @@
 	};
 
 	require(["gitbook"], function(gitbook) {
-		gitbook.events.bind("page.change", function(){
-			init();
-		});
+		gitbook.events.bind("page.change", init);
 	});
 
 })();

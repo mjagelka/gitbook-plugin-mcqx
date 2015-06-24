@@ -12,39 +12,15 @@
 	box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.1);
 }
 
-.mcqBox.dark {
-	background-color: #373b4e;
-}
+.mcqBox.dark {background-color: #373b4e;}
 
-.hint_message {
-	color: grey;
-	display: none;
-	margin-bottom: 10px;
-}
+.hint_message {color: grey;d isplay: none; margin-bottom: 10px;}
 
-.MCQbutton {
-	display: inline-block;
-	margin-top: 15px;
-} 
+.MCQbutton {display: inline-block; margin-top: 15px;} 
+.submitMCQ {margin-right: 10px;}
 
-.MCQbutton > button:focus {
-  outline: none;
-}
+.MCQmessage {margin-top: 20px; display: none;}
+.mcqBox.dark > .container-fluid > .MCQmessage { background-color: #B8B9C0;}
 
-.MCQmessage {
-	margin-top: 20px;
-	display: none;
-}
-
-.done-icon {
-	margin-left: 15px;
-	display: inline-block;
-}
-
-.submitMCQ {
-	margin-right: 10px;
-}
-
-.MCQoption {
-	display: inline-block;
-}
+.MCQoption {display: inline-block;}
+.MCQdescription {margin-top: 5px; margin-bottom: 5px; margin-left: 10px; font-size: smaller; display: none;}
