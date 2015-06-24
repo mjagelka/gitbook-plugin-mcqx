@@ -31,6 +31,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.1 releases:
+	* 0.1.4: Fixed animation.
 	* 0.1.3: Allow addition of answer description. Improved dark theme appearance.
 	* 0.1.2: Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
 	* 0.1.1: Improved options shuffling algorithm. 
