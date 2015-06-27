@@ -1,1 +1,110 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Page for gitbook-plugin-mcqx</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+	<nav role="navigation" class="navbar navbar-default navbar-fixed-top shadow">
+	  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><i class="fa fa-bar-chart fa-1x"></i><b> Multiple Choice </b><small>for gitbook</small></a>
+			</div>
+		  <div id="navbarCollapse" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#feature">Features</a></li>
+					<li><a href="#syntax">Syntax</a></li>
+					<li><a href="#code">Code Generator</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="jumbotron shadow header">
+	  <div class="container-fluid">
+		<center>
+		  <h1 class="bold">Multiple Choice for Gitbook</h1>
+		  <image src="images/index_demo.png" class="img-responsive"></image>
+		</center>
+	  </div>
+	</div>
+
+	<div class="container">
+
+	  <div class="col-md-5">
+	    <div id="feature" class="panel panel-success">
+	      <div class="panel-heading">
+	        <h2 class="panel-title">Features</h2>
+	      </div>
+	      <div class="panel-body">
+	       <p><ul><li>Hints for the questions.</li><li>Cookies support: answered question will be disabled when page load.</li><li>Integration with my other plugin <code>gitbook-plugin-sectionx</code> to allow you to toggle new section once the correct answer is chosen (use <code>target</code> paramater to control it, see below).</li><li>Randomize order of choice.</li><li>Allow adding 2-8 options.</li><li>Allow addition of answer description.</li><li>Dark theme support.</li><li><p>.pdf, .mobi, .epub export supported.</p></li></ul></p>
+	       <hr>
+	       <p>Check out <a href='http://ymcatar.gitbooks.io/gitbook-test/content/testing_mcqx.html'>this page</a> for the demo.
+	      </div>
+	    </div>
+
+	    <div id="syntax" class="panel panel-success">
+	      <div class="panel-heading">
+	        <h2 class="panel-title">Syntax</h2>
+	      </div>
+	      <div class="panel-body">
+	      	
+	     	 	<p>The plugin has a simple syntax:</p>
+					<blockquote>
+						{%mcq id="quizx-01", ans="o1"%}<br>
+						{%title%} This is a question?<br>
+						{%o1%} First option<br>
+						{%o2%} Second option<br>
+						{%o3%} Third option<br>
+						{%o4%} Fourth option<br>
+						{%endmcq%}
+					</blockquote>
+					<br>
+					<p>The <code>{%mcq%}</code> tag (line 1) must have the following arguments for it to work:</p>
+
+					<ul>
+						<li><code>id</code>: a unique identifier for each multiple chocie question (if it is not unique, horrible bugs awaits.)</li>
+						<li><code>ans</code>: the id of correct option (possible values: <code>o1</code>, <code>o2</code>, <code>o3</code>, <code>o4</code>, <code>o5</code>, <code>o6</code>, <code>o7</code>, <code>o8</code>).</li>
+					</ul>
+
+					<hr>
+
+					<p>The content of the multiple choice question is included in the book as a sub-block for the mcq tag (line 2 - 7).</p>
+
+					<ul>
+						<li><code>title</code>: question title (no markdown support for now).</li>
+						<li><code>o1</code>, <code>o2</code>, <code>o3</code>, <code>o4</code>, <code>o5</code>, <code>o6</code>, <code>o7</code>, <code>o8</code>: text for each options (you can include up to eight options).</li>
+					</ul>
+
+	      	<hr>
+	      	<p>Check out <a href='https://github.com/ymcatar/gitbook-plugin-mcqx'>this page</a> for more.
+	      	<p>Syntax too complicated? Use the <a href='#code'>code generator</a> instead.</p>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="col-md-7">
+	    <div id="code" class="panel panel-success">
+	      <div class="panel-heading">
+	        <h2 class="panel-title">Code Generator</h2>
+	      </div>
+	      <div class="panel-body">
+	      </div>
+	    </div>
+	  </div>
+
+	</div>
+
+
+	<div class="footer">
+	  <div class="container"><i class="fa fa-globe sameline rightmargin"></i>
+		<p class="text-muted sameline">Developed by Yiu Man Chi, Chan Siu Chun @ 2015</p>
+	  </div>
+	</div>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
