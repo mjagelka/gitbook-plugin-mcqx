@@ -3,7 +3,6 @@
 body {
 	font-family: 'Raleway', sans-serif;
 	background: #F9F9F9;
-	font-size: medium;
 }
 
 .shadow {
@@ -38,7 +37,7 @@ a > h4 { color: #F5F5F5; }
 	margin-bottom: 0px;
 }
 
-.navbar-default { opacity: 0.95; }
+.navbar-default { opacity: 0.97; }
 .navbar-brand > i, .navbar-brand > b {color: #019EC3;}
 .navbar-brand > b { display: inline-block; margin-left: 5px; margin-right: 5px;}
 .navbar-brand > small { font-size: small; }
