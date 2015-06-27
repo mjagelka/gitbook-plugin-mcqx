@@ -12,9 +12,13 @@ body {
 }
 
 .bold { font-weight: bold; }
+
 .sameline { display: inline-block; }
+.hidden { display: none; }
+
 .rightmargin { margin-right: 5px; }
 .center { float: none; margin-left: auto; margin-right: auto; }
+.required {color: #CC181E;}
 
 a > h4 { color: #F5F5F5; }
 
@@ -53,11 +57,6 @@ a > h4 { color: #F5F5F5; }
 .panel-info > .panel-heading > .panel-title { color: white; }
 .btn-info { border-color: #42C2E1; background-color: #019EC3; }
 
-#index_submit { margin-right: 20px; }
-#index_message { display: none; height: 100px; width:100%; }
-
-button > i.fa { margin-right: 10px; }
-
 .body-panel {padding-top: 100px;}
 
-.required {color: #CC181E;}
+.input-group-addon { min-width: 100px;}
