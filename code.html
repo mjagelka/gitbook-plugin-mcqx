@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Muliple Choice for GitBook</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top shadow">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><i class="fa fa-bar-chart fa-1x"></i><b> Multiple Choice </b><small>for gitbook</small></a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Features & Syntax</a></li>
+            <li class="active"><a href="code.html">Code Generator</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container body-panel">
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h5 class="panel-title">Input</h5>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <div class="input-group margin-bottom-sm"><span class="input-group-addon"><i class="fa fa-cube fa-fw required"></i></span>
+                  <input id="input_id" type="text" name="id" placeholder="Question ID" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group margin-bottom-sm"><span class="input-group-addon"><i class="fa fa-list fa-fw required"></i></span>
+                  <textarea id="input_title" placeholder="Question Title" class="form-control"></textarea>
+                </div>
+              </div>
+              <hr>
+              <p> <b class="required">red:</b> required</p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h5 class="panel-title">Output</h5>
+          </div>
+          <div class="panel-body">
+            <textarea id="output" readonly="readonly" rows="20" class="form-control"></textarea>
+            <hr>
+            <button id="output_copy" class="btn btn-info">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container"><i class="fa fa-globe sameline rightmargin"></i>
+        <p class="text-muted sameline">Developed by Yiu Man Chi, Chan Siu Chun @ 2015</p>
+      </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="javascripts/code.js">
+      </body>
+      </html>
+    </script>
+  </body>
+</html>
