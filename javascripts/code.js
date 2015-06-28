@@ -2,8 +2,16 @@ var codeUpdate = function(){
 
 	var code = [];
 
-	code.push({id:'start', body:'{%mcq%}'});
+	code.push({id:'start', body:''});
 	code.push({id:'title', body:'{%title%}'});
+	code.push({id:'o1', body:''});
+	code.push({id:'o2', body:''});
+	code.push({id:'o3', body:''});
+	code.push({id:'o4', body:''});
+	code.push({id:'o5', body:''});
+	code.push({id:'o6', body:''});
+	code.push({id:'o7', body:''});
+	code.push({id:'o8', body:''});
 	code.push({id:'hint', body: ''})
 	code.push({id:'message', body: ''})
 	code.push({id:'end', body:'{%endmcq%}'});
@@ -22,17 +30,39 @@ var codeUpdate = function(){
 		return $(id).val().trim();
 	}
 
-	if( !hasContent('input_id') || !hasContent('input_title') )
-	{
+	var insufficientInfo = function(){
 		$('#output').text("Insufficient information (please fill in all the required boxes)");
 
 		if(!$('#output_copy').hasClass('disabled'))
 			$('#output_copy').addClass('disabled');
+	}
+
+	if( !hasContent('input_id') || !hasContent('input_title') || getContent('input_qCount option:selected')=='auto')
+	{
+		insufficientInfo();
 		return;
 	}
 	else
 	{
-		replaceInCode('start', "{%mcq id='" + getContent('input_id') + "'%}");
+		var start = []; // string builder for {%mcq%} tag
+
+		// construct the {%mcq% tag} ----------
+
+		start.push("id='" + getContent('input_id') + "'");
+
+		if(getContent('input_count option:selected') != 'auto')
+			start.push("count=" + getContent('input_count option:selected'))
+
+		if($('#input_shuffle').is(':checked'))
+			start.push("random=true")
+
+		if(hasContent('input_sectionx'))
+			start.push("target='" + getContent('input_sectionx') + "'")
+
+		replaceInCode('start', '{%mcq ' + start.join(', ') + ' %}')
+
+		// handle all the sub-blocks ----------
+
 		replaceInCode('title', "{%title%} " + getContent('input_title'));
 
 		if(hasContent('input_hint'))
@@ -41,10 +71,16 @@ var codeUpdate = function(){
 		if(hasContent('input_message'))
 			replaceInCode('message', '{%message%} ' + getContent('input_message'));
 
-		var count = getContent('input_count option:selected');
-		if(count != 'auto')
-			replaceInCode('start', "{%mcq id='" + getContent('input_id')
-				+ "', count=" + count + " %}")
+		for(var i=1; i<= $('#input_qCount option:selected').val() ; i++)
+			if(hasContent('input_o'+i))
+				replaceInCode('o'+i, '{%o'+i+'%} ' + getContent('input_o'+i));
+			else
+			{
+				insufficientInfo();
+				return;
+			}
+
+		// construct the output from code  ----------
 
 		var output = code.map(function(a){
 			return a.body;
@@ -55,6 +91,8 @@ var codeUpdate = function(){
 				return a;
 		});
 
+		// put the output to the box  ----------
+
 		$('#output').text(output);
 		$('#output_copy').removeClass('disabled');
 	}
@@ -63,8 +101,25 @@ var codeUpdate = function(){
 var init = function(){
 
 	codeUpdate();
+
 	$('.form-control').keyup(codeUpdate);
-	 $('#input_count').change(codeUpdate);
+	$('.form-control-select, .form-control-check').change(codeUpdate);
+
+	$('#input_qCount').change(function(){
+		var count = $('#input_qCount option:selected').val();
+		for(var i=1; i<=8; i++){
+			if(i<=count)
+			{
+				$('#q'+i).removeAttr('disabled');
+				$('#input_o'+i).removeAttr('disabled');
+			}
+			else
+			{
+				$('#q'+i).attr('disabled','disabled');
+				$('#input_o'+i).attr('disabled','disabled');
+			}
+		}
+	});
 
 	$('#output_selectAll').click(function(){
 		$('#output').select();

@@ -57,6 +57,6 @@ a > h4 { color: #F5F5F5; }
 .panel-info > .panel-heading > .panel-title { color: white; }
 .btn-info { border-color: #42C2E1; background-color: #019EC3; }
 
-.body-panel {padding-top: 100px;}
-
 .input-group-addon { min-width: 100px;}
+
+#output { font-family: monospace; }

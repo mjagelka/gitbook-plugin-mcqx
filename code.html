@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
   <body>
-    <nav role="navigation" class="navbar navbar-default navbar-fixed-top shadow">
+    <nav role="navigation" class="navbar navbar-default shadow">
       <div class="container">
         <div class="navbar-header">
           <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><i class="fa fa-bar-chart fa-1x"></i><b> Multiple Choice </b><small>for gitbook</small></a>
@@ -21,23 +21,24 @@
         </div>
       </div>
     </nav>
-    <div class="container body-panel">
+    <div class="container">
       <div class="col-md-4">
         <div class="panel panel-info">
           <div class="panel-heading">
             <h5 class="panel-title">Basic Info</h5>
           </div>
           <div class="panel-body">
+            <p>Please fill in all the field below.</p>
+            <hr>
             <form>
               <div class="form-group"><small class="required">Question ID:</small>
-                <input id="input_id" type="text" name="id" placeholder="Question ID (should be unique)." class="form-control">
+                <input id="input_id" type="text" name="id" placeholder="Question ID (should be unique)." class="form-control input-sm">
               </div>
               <div class="form-group"><small class="required">Title:</small>
-                <textarea id="input_title" placeholder="Question description." class="form-control"></textarea>
+                <textarea id="input_title" placeholder="Question description." class="form-control input-sm"></textarea>
               </div>
-              <hr>
               <div class="form-group"><small class="required">Number of options in the bank:</small>
-                <select id="input_qCount" class="form-control">
+                <select id="input_qCount" class="form-control form-control-select input-sm">
                   <option value="auto" disabled="" selected="">--- Please select ---</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -50,59 +51,71 @@
               </div>
               <div class="form-group"><small class="required">Options:</small>
                 <div class="input-group"><span class="input-group-addon">Option 1</span>
-                  <input id="input_o1" class="form-control">
+                  <textarea id="input_o1" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
                 <div class="input-group"><span class="input-group-addon">Option 2</span>
-                  <input id="input_o1" class="form-control">
+                  <textarea id="input_o2" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 3</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 3</span>
+                  <textarea id="input_o3" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 4</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 4</span>
+                  <textarea id="input_o4" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 5</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 5</span>
+                  <textarea id="input_o5" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 6</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 6</span>
+                  <textarea id="input_o6" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 7</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 7</span>
+                  <textarea id="input_o7" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
-                <div class="input-group hidden"><span class="input-group-addon">Option 8</span>
-                  <input id="input_o1" class="form-control">
+                <div class="input-group"><span class="input-group-addon">Option 8</span>
+                  <textarea id="input_o8" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
               </div>
             </form>
           </div>
         </div>
-        <blockquote><b class="required">red: </b>required field</blockquote>
       </div>
       <div class="col-md-4">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
           <div class="panel-heading">
-            <h5 class="panel-title">Settings</h5>
+            <h5 class="panel-title">Optional Settings</h5>
           </div>
           <div class="panel-body">
+            <p>All the field below are optional.</p>
+            <hr>
             <div class="form-group"><small>Hint:</small>
-              <textarea id="input_hint" placeholder="Hint that will be displayed when readers click the 'hint' button." class="form-control"></textarea>
+              <textarea id="input_hint" placeholder="Hint that will be displayed when readers click the 'hint' button." class="form-control input-sm"></textarea>
             </div>
             <div class="form-group"><small>Message:</small>
-              <textarea id="input_message" placeholder="This message will be displayed when the question is correctly answered." class="form-control"></textarea>
+              <textarea id="input_message" placeholder="This message will be displayed when the question is correctly answered." class="form-control input-sm"></textarea>
             </div>
             <hr>
-            <div class="form-group"><small>Number of options that will be visible to the user: <br>(Leave this unselected to display all option)</small>
-              <select id="input_count" class="form-control">
-                <option value="auto" disabled="" selected="">--- Please select ---</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
+            <div class="form-group"><small>Number of options that will be visible to the user: <br></small>
+              <select id="input_count" class="form-control form-control-select input-sm">
+                <option value="auto" selected="">Show all options</option>
+                <option id="q2" value="2">2</option>
+                <option id="q3" value="3">3</option>
+                <option id="q4" value="4">4</option>
+                <option id="q5" value="5">5</option>
+                <option id="q6" value="6">6</option>
+                <option id="q7" value="7">7</option>
+                <option id="q8" value="8">8</option>
               </select>
+            </div>
+            <hr>
+            <div class="form-group">
+              <div class="checkbox">
+                <label><input id="input_shuffle" type="checkbox" class="form-control-check">Shuffle options</label>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group"><small>Integration with <code>gitbook-plugin-sectionx:</code><br>
+            (leave this empty to not use this feature)</small>
+              <input id="input_sectionx" placeholder="ID of the section to open when answer is correct." class="form-control input-sm">
             </div>
           </div>
         </div>
@@ -113,10 +126,10 @@
             <h5 class="panel-title">Output</h5>
           </div>
           <div class="panel-body">
-            <textarea id="output" readonly="readonly" rows="20" class="form-control"></textarea>
+            <textarea id="output" readonly="readonly" rows="20" class="form-control input-sm"></textarea>
             <hr>
             <button id="output_selectAll" class="sameline rightmargin btn btn-info">Select All</button>
-            <p class="sameline">Select all and copy the code.</p>
+            <p class="sameline">Select and copy manually.</p>
           </div>
         </div>
       </div>
