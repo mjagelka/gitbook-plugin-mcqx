@@ -116,11 +116,13 @@ var init = function(){
 			if(i<=count)
 			{
 				$('#q'+i).removeAttr('disabled');
+				$('#ans_'+i).removeAttr('disabled');
 				$('#input_o'+i).removeAttr('disabled');
 			}
 			else
 			{
 				$('#q'+i).attr('disabled','disabled');
+				$('#ans_'+i).attr('disabled','disabled');
 				$('#input_o'+i).attr('disabled','disabled');
 			}
 		}
