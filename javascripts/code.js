@@ -33,8 +33,8 @@ var codeUpdate = function(){
 	var insufficientInfo = function(){
 		$('#output').text("Insufficient information (please fill in all the required boxes)");
 
-		if(!$('#output_copy').hasClass('disabled'))
-			$('#output_copy').addClass('disabled');
+		if(!$('#output_selectAll').hasClass('disabled'))
+			$('#output_selectAll').addClass('disabled');
 	}
 
 	if( !hasContent('input_id') || !hasContent('input_title') || 
