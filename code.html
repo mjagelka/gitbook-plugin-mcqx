@@ -25,19 +25,19 @@
       <div class="col-md-4">
         <div class="panel panel-info">
           <div class="panel-heading">
-            <h5 class="panel-title">Basic Info</h5>
+            <h5 class="panel-title">Basic Settings</h5>
           </div>
           <div class="panel-body">
             <p>Please fill in all the fields below.</p>
             <hr>
             <form>
-              <div class="form-group"><small class="required">Question ID:</small>
+              <div class="form-group"><label class="required">Question ID</label>
                 <input id="input_id" type="text" name="id" placeholder="Question ID (should be unique)." class="form-control input-sm">
               </div>
-              <div class="form-group"><small class="required">Title:</small>
+              <div class="form-group"><label class="required">Title</label>
                 <textarea id="input_title" placeholder="Question description." class="form-control input-sm"></textarea>
               </div>
-              <div class="form-group"><small class="required">Number of options in the bank:</small>
+              <div class="form-group"><label class="required">Number of options in the bank</label>
                 <select id="input_qCount" class="form-control form-control-select input-sm">
                   <option value="auto" disabled="" selected="">--- Please select ---</option>
                   <option value="2">2</option>
@@ -49,7 +49,7 @@
                   <option value="8">8</option>
                 </select>
               </div>
-              <div class="form-group"><small class="required">The correct option:</small>
+              <div class="form-group"><label class="required">The correct option</label>
                 <select id="input_ans" class="form-control form-control-select input-sm">
                   <option value="none" disabled="" selected="">--- Please select ---</option>
                   <option value="1" id="ans_1">Option 1</option>
@@ -62,7 +62,7 @@
                   <option value="8" id="ans_8">Option 8</option>
                 </select>
               </div>
-              <div class="form-group"><small class="required">Options:</small>
+              <div class="form-group"><label class="required">Options</label>
                 <div class="input-group"><span class="input-group-addon">Option 1</span>
                   <textarea id="input_o1" rows="1" disabled="" class="form-control input-sm"></textarea>
                 </div>
@@ -100,14 +100,14 @@
           <div class="panel-body">
             <p>All the fields below are optional.</p>
             <hr>
-            <div class="form-group"><small>Hint:</small>
+            <div class="form-group"><label>Hint</label>
               <textarea id="input_hint" placeholder="Hint that will be displayed when readers click the 'hint' button." class="form-control input-sm"></textarea>
             </div>
-            <div class="form-group"><small>Message:</small>
+            <div class="form-group"><label>Message</label>
               <textarea id="input_message" placeholder="This message will be displayed when the question is correctly answered." class="form-control input-sm"></textarea>
             </div>
             <hr>
-            <div class="form-group"><small>Number of options that will be visible to the user: <br></small>
+            <div class="form-group"><label>Number of options visible to the user <br></label>
               <select id="input_count" class="form-control form-control-select input-sm">
                 <option value="auto" selected="">Show all options</option>
                 <option id="q2" value="2">2</option>
@@ -121,13 +121,14 @@
             </div>
             <hr>
             <div class="form-group">
+              <label>Randomize order of options</label>
               <div class="checkbox">
                 <label><input id="input_shuffle" type="checkbox" class="form-control-check">Shuffle options</label>
               </div>
             </div>
             <hr>
-            <div class="form-group"><small>Integration with <code>gitbook-plugin-sectionx</code>:<br>
-            (leave this empty to not use this feature)</small>
+            <div class="form-group"><label>Integration with <code>gitbook-plugin-sectionx</code><br>
+            (leave this empty to not use this feature)</label>
               <input id="input_sectionx" placeholder="ID of the section to open when answer is correct." class="form-control input-sm">
             </div>
           </div>
