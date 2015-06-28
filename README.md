@@ -5,6 +5,8 @@ GitBook Multiple Choice Plugin
 
 See the plugin at work here: [Click Here](http://ymcatar.gitbooks.io/gitbook-test/content/testing_mcqx.html)
 
+Syntax too complicated? Use the code generator in the [plugin homepage](http://ymcatar.github.io/gitbook-plugin-mcqx/).
+
 ## Feature List
 
 This is a multiple choice plugin developed for GitBook, packed with interactive features including:
@@ -19,16 +21,14 @@ This is a multiple choice plugin developed for GitBook, packed with interactive 
 	* Dark theme support.
 	* .pdf, .mobi, .epub export supported.
 
-
-* To be implemented:
-	* Include markdown support for question title and choices.
-	* ...
-
 Another version of the plugin featuring analytics are also in the works. This version will not include this feature. It will be published as a separate plugin.
 
 Please not that the plugin is still in active development, so the syntax is subjected to changed.
 
 ## Changelog
+
+* 0.2 releases:
+	* 0.2.0: Added code generator, no more need to learn the syntax!
 
 * 0.1 releases:
 	* 0.1.4: Fixed animation.
@@ -44,6 +44,10 @@ Please not that the plugin is still in active development, so the syntax is subj
 	* 0.0.1: Initial release.
 
 ## Usage
+
+### Code generator
+
+Syntax too complicated? Use the code generator in the [plugin homepage](http://ymcatar.github.io/gitbook-plugin-mcqx/).
 
 ### Basic syntax
 
