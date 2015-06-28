@@ -100,6 +100,8 @@ var codeUpdate = function(){
 
 var init = function(){
 
+	alert('Sorry! Just found some error in the syntax. I will fix it asap. Come check back later.');
+
 	codeUpdate();
 
 	$('.form-control').keyup(codeUpdate);
