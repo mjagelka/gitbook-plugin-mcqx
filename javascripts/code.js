@@ -37,7 +37,9 @@ var codeUpdate = function(){
 			$('#output_copy').addClass('disabled');
 	}
 
-	if( !hasContent('input_id') || !hasContent('input_title') || getContent('input_qCount option:selected')=='auto')
+	if( !hasContent('input_id') || !hasContent('input_title') || 
+		getContent('input_qCount option:selected')=='auto' ||
+		getContent('input_ans option:selected')=='none')
 	{
 		insufficientInfo();
 		return;
@@ -51,7 +53,10 @@ var codeUpdate = function(){
 		start.push("id='" + getContent('input_id') + "'");
 
 		if(getContent('input_count option:selected') != 'auto')
-			start.push("count=" + getContent('input_count option:selected'))
+			start.push("count=" + getContent('input_count option:selected'));
+
+		if(getContent('input_ans option:selected') != 'none')
+			start.push("ans='o" + getContent('input_ans option:selected') + "'");
 
 		if($('#input_shuffle').is(':checked'))
 			start.push("random=true")
@@ -99,8 +104,6 @@ var codeUpdate = function(){
 };
 
 var init = function(){
-
-	alert('Sorry! Just found some error in the syntax. I will fix it asap. Come check back later.');
 
 	codeUpdate();
 
