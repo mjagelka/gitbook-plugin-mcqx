@@ -99,7 +99,7 @@ var codeUpdate = function(){
 		// put the output to the box  ----------
 
 		$('#output').text(output);
-		$('#output_copy').removeClass('disabled');
+		$('#output_selectAll').removeClass('disabled');
 	}
 };
 
