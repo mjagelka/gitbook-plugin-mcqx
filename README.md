@@ -5,7 +5,11 @@ GitBook Multiple Choice Plugin
 
 See the plugin at work here: [Click Here](http://ymcatar.gitbooks.io/gitbook-test/content/testing_mcqx.html)
 
+## Code generator
+
 Syntax too complicated? Use the code generator in the [plugin homepage](http://ymcatar.github.io/gitbook-plugin-mcqx/).
+
+![](http://i.imgur.com/AD1C50h.gif)
 
 ## Feature List
 
@@ -28,6 +32,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.2 releases:
+	* 0.2.1: Updated README only. No need to upgrade the plugin.
 	* 0.2.0: Added code generator, no more need to learn the syntax!
 
 * 0.1 releases:
