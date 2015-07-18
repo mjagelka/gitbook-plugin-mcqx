@@ -32,6 +32,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.2 releases:
+	* 0.2.2: Updated looks when exported to .pdf.
 	* 0.2.1: Updated README only. No need to upgrade the plugin.
 	* 0.2.0: Added code generator, no more need to learn the syntax!
 
