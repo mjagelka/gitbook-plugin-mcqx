@@ -37,7 +37,7 @@ var codeUpdate = function(){
 			$('#output_selectAll').addClass('disabled');
 	}
 
-	if( !hasContent('input_id') || !hasContent('input_title') || 
+	if( !hasContent('input_title') ||
 		getContent('input_qCount option:selected')=='auto' ||
 		getContent('input_ans option:selected')=='none')
 	{
@@ -49,8 +49,6 @@ var codeUpdate = function(){
 		var start = []; // string builder for {%mcq%} tag
 
 		// construct the {%mcq% tag} ----------
-
-		start.push("id='" + getContent('input_id') + "'");
 
 		if(getContent('input_count option:selected') != 'auto')
 			start.push("count=" + getContent('input_count option:selected'));
