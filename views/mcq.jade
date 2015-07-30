@@ -1,23 +1,23 @@
-.mcqBox(id=question.id, data-config=JSON.stringify(question))
+.mcqBox(id=question.id, data-config=JSON.stringify(question), style='color: #7F7F7F;')
 	.container-fluid
-		h5
-			b!=question.title
-		.hint_message
+		!=question.title
+		
+		blockquote
+			p.hint_message
+			-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+			-for(var i=0; i<question.count; i++)
+				label.radio-inline
+					input(name=question.id+"_group", type="radio")
+					b #{alphabet[i]}. 
+					.MCQoption(class='ansHere'+i)
+				br
 
-		-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-		-for(var i=0; i<question.count; i++)
-			label.radio-inline
-				input(name=question.id+"_group", type="radio")
-				b #{alphabet[i]}. 
-				.MCQoption(class='ansHere'+i)
-			br
-
-		.MCQbutton
-			button.btn.btn-primary.submitMCQ 
-				b Submit
-			-if(question.hint)
-				button.btn.btn-info.hintMCQ
-					b Hint
+			.MCQbutton
+				button.btn.btn-primary.submitMCQ 
+					b Submit
+				-if(question.hint)
+					button.btn.btn-info.hintMCQ
+						b Hint
 
 		.alert.MCQmessage
 		.MCQdescription

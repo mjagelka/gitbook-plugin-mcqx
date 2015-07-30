@@ -15,21 +15,28 @@ Syntax too complicated? Use the code generator in the [plugin homepage](http://y
 
 This is a multiple choice plugin developed for GitBook, packed with interactive features including:
 
-* Completed:
-	* Hints for the questions.
-	* Cookies support: answered question will be disabled when page load.
-	* Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
-	* Randomize order of choice.
-	* Allow adding 2-8 options.
-	* Allow addition of answer description.
-	* Dark theme support.
-	* .pdf, .mobi, .epub export supported.
+* Hints for the questions.
+* Cookies support: answered question will be disabled when page load.
+* Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
+* Randomize order of choice.
+* Allow adding 2-8 options.
+* Allow addition of answer description.
+* Dark theme support.
+* .pdf, .mobi, .epub export supported.
 
 Another version of the plugin featuring analytics are also in the works. This version will not include this feature. It will be published as a separate plugin.
 
 Please not that the plugin is still in active development, so the syntax is subjected to changed.
 
 ## Changelog
+
+* 0.3 releases:
+	* 0.3.0:
+		* No need to enter a id now. It is now auto-generated.
+		* Simplified code, the plugin will now work quicker.
+		* Improved looks in website.
+		* Improved looks in .pdf - answer will now be displayed upside down.
+		* Added markdown support for question title.
 
 * 0.2 releases:
 	* 0.2.2: Updated looks when exported to .pdf.
@@ -40,7 +47,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 	* 0.1.4: Fixed animation.
 	* 0.1.3: Allow addition of answer description. Improved dark theme appearance.
 	* 0.1.2: Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
-	* 0.1.1: Improved options shuffling algorithm. 
+	* 0.1.1: Improved options shuffling algorithm.
 	* 0.1.0: You can now randomize order of options and include questions with up to 8 options.
 
 * 0.0 releases:
@@ -60,7 +67,7 @@ Syntax too complicated? Use the code generator in the [plugin homepage](http://y
 Each multiple choice question has this basic syntax, they are **not optional**:
 
 ```
-{%mcq id="quizx-01", ans="o1"%}
+{%mcq ans="o1"%}
 {%title%} This is a question?
 {%o1%} First option
 {%o2%} Second option
@@ -71,7 +78,6 @@ Each multiple choice question has this basic syntax, they are **not optional**:
 
 The ```{%mcq%}``` tag (line 1) must have the following arguments for it to work:
 
-* **```id```**: a *unique* identifier for each multiple chocie question (if it is not unique, horrible bugs awaits.)
 * **```ans```**: the id of correct option (possible values: ```o1```,```o2```,```o3```,```o4```,```o5```,```o6```,```o7```,```o8```)
 
 The content of the multiple choice question is included in the book as a sub-block for the mcq tag (line 2 - 7).
@@ -84,7 +90,7 @@ The content of the multiple choice question is included in the book as a sub-blo
 You can add a ```{%hint%}``` sub-block to display a hint message. They will be shown when the user click the "Hint" button.
 
 ```
-{%mcq id="quizx-02", ans="o1", count=2%}
+{%mcq ans="o1", count=2%}
 {%title%} This is a question?
 {%o1%} First option
 {%o2%} Second option
@@ -99,7 +105,7 @@ You can add a ```{%hint%}``` sub-block to display a hint message. They will be s
 You can add an optional ```count``` parameter to the ````{%mcq%}``` tag to show only a certain number of options.
 
 ```
-{%mcq id="quizx-03", ans="o1", count=2%}
+{%mcq ans="o1", count=2%}
 {%title%} This is a question?
 {%o1%} First option
 {%o2%} Second option
@@ -119,7 +125,7 @@ In this case, only two options will be displayed for the user to choose (the cor
 You can add an optional ```random=true``` parameter to the ```{%mcq%}``` tag to let the order of the options to be randomized.
 
 ```
-{%mcq id="quizx-04", ans="o1", random=true%}
+{%mcq ans="o1", random=true%}
 {%title%} This is a question?
 {%o1%} First option
 {%o2%} Second option
@@ -130,14 +136,14 @@ You can add an optional ```random=true``` parameter to the ```{%mcq%}``` tag to 
 
 ### Integration with gitbook-plugin-sectionx plugin
 
-You can add an optional ```target``` parameter to the ```{%mcq%}``` tag to make a section visible after the user answer a question correctly. 
+You can add an optional ```target``` parameter to the ```{%mcq%}``` tag to make a section visible after the user answer a question correctly.
 
 This feature is used in [this page](http://ymcatar.gitbooks.io/gitbook-test/content/testing_mcqx.html), you can see the source code at the end of the page.
 
 You must first install ```gitbook-plugin-sectionx``` before you can use this feature.
 
 ```
-{%mcq id="quizx-05", ans="o1", target="q2"%}
+{%mcq ans="o1", target="q2"%}
 {%title%} This is a question?
 {%o1%} First option
 {%o2%} Second option

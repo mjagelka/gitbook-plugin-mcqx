@@ -1,6 +1,6 @@
-(function(){
+require(["gitbook", "jquery"], function(gitbook, $) {
 
-	function MultipleChoice(input){ //a class for each multiple choice questions
+	function MultipleChoice(input){
 		this.qid = input.id;
 		this.ans = input.ans;
 
@@ -15,20 +15,16 @@
 	};
 
 	MultipleChoice.prototype.checkAns = function(input){
-		if(input === this.ans)
-			return true;
-		else
-			return false;
+		return input===this.ans;
 	};
 
 	Array.prototype.shuffle = function() { //thanks stack overflow for this part
 		var o = this;
-    	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-    	return o;
+		for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
 	}
 
-	var init = function(){
-
+	gitbook.events.bind("page.change", function(){
 		$('.mcqBox').each(function(){
 
 			var question = new MultipleChoice($(this).data('config'));
@@ -57,58 +53,29 @@
 
 			// display the option to html
 			optionsToShow.forEach(function(option, i){
-				$mcqBox.find('.ansHere'+i).text(option.body);
-				$mcqBox.find('.ansHere'+i).siblings('input').val(option.id);
+				$mcqBox.find('.ansHere'+i).html(option.body).siblings('input').val(option.id);
 			});
 
-			// dark theme handler ---------------------------
-			setTimeout(function(){
-				if($('.book').hasClass('color-theme-2')){
-					console.log($('.book').hasClass('color-theme-2'));
-					$mcqBox.addClass('dark');
-				}
-			}, 1);
-
-			$('#color-theme-preview-0, #color-theme-preview-1').click(function(){
-				$mcqBox.removeClass('dark');
-			});
-			
-			$('#color-theme-preview-2').click(function(){
-				$mcqBox.addClass('dark');
-			});
-
-			// check if the question is already answered before  ---------------------------
-			if(Cookies.get(question.qid)) {
-
-				//disable the question if it is already answered
-				$mcqBox.find('.btn.submitMCQ').removeClass('btn-primary').addClass('btn-default disabled');
-				if(question.hint)	$mcqBox.find('.btn.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
-				$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
-
-				$mcqBox.find('.MCQmessage').text('You had already answered this question.').show('slow');
+			var correctAnswer = function(){
+				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);
+				$mcqBox.find('.btn.hintMCQ').attr('disabled', true);
+				$mcqBox.find('input[name='+question.qid+'_group]').attr('disabled', true);
+				$mcqBox.find('.MCQmessage').text('Correct.').show('slow');
 
 				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
-				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);//toggle the target section
+				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
 			}
 
-			// hint handler for hint button ---------------------------
+			// check if the question is already answered before  ---------------------------
+			if(Cookies.get(question.qid))
+				correctAnswer();
+
+			// click handler for submit button ---------------------------
 			$mcqBox.find('.btn.submitMCQ').click(function(){
 
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
-
-					Cookies.set(question.qid, true);//planting a cookie
-
-					$mcqBox.find('.MCQmessage').text("Correct.").show('slow');
-					$(this).removeClass('btn-primary').addClass('btn-default disabled');
-
-					if(question.hint)
-						$(this).siblings('.hintMCQ').removeClass('btn-info').addClass('btn-default disabled');
-
-					if(question.message)
-						$mcqBox.find('.MCQdescription').text(question.message).show('slow');
-
-					$mcqBox.find('input[name=' + question.qid + '_group]').attr('disabled', true);
-					if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
+					Cookies.set(question.qid, true); //planting a cookie
+					correctAnswer();
 				}
 				else {
 					$mcqBox.find('.MCQmessage').text("Wrong answer, try again.").show('slow').delay(1000).hide('slow');
@@ -116,16 +83,10 @@
 			});
 
 			// click handler for hint button ---------------------------
-			if(question.hint)
-				$mcqBox.find('.btn.hintMCQ').click(function(){
-					$(this).removeClass('btn-info').addClass('btn-default disabled');
-					$mcqBox.find('.hint_message').text('('+question.hint+')').show('slow');
-				});
+			$mcqBox.find('.btn.hintMCQ').click(function(){
+				$(this).removeClass('btn-info').attr('disabled', true);
+				$mcqBox.find('.hint_message').text('('+question.hint+')').show('slow');
+			});
 		});
-	};
-
-	require(["gitbook"], function(gitbook) {
-		gitbook.events.bind("page.change", init);
 	});
-
-})();
+});

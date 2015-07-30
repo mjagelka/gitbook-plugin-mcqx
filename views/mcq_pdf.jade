@@ -1,18 +1,18 @@
 blockquote
-	b Q: #{question.title}
-	br
-	if(question.hint)
-		small Hint: #{question.hint}
-	br
-	br
+	!=question.title
 
 	-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+	-var invertedAlphabet = ['ɐ', 'q', 'ɔ', 'p', 'ǝ', 'ɟ', 'ƃ', 'ɥ']
 	-var ans
 	ul
 		each option, i in question.option
-			li #{alphabet[i]+'. '+option.body}
-
+			li #{alphabet[i]}. #{option.body}
+			
 			if option.id === question.ans
-				-ans=alphabet[i]
+				-ans=invertedAlphabet[i]
 
-	small Ans: #{ans}
+	if(question.hint)
+		small (Hint: #{question.hint})
+	
+	br
+	small(style='color:grey;') #{ans}:ɹǝʍsuɐ
