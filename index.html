@@ -65,10 +65,9 @@
           </div>
           <div class="panel-body">
             <p>The plugin has a simple syntax:</p>
-            <blockquote>{%mcq id="quizx-01", ans="o1"%}<br>           {%title%} This is a question?<br>           {%o1%} First option<br>           {%o2%} Second option<br>            {%o3%} Third option<br>           {%o4%} Fourth option<br>            {%endmcq%}</blockquote><br>
+            <blockquote>{%mcq ans="o1"%}<br>           {%title%} This is a question?<br>           {%o1%} First option<br>           {%o2%} Second option<br>            {%o3%} Third option<br>           {%o4%} Fourth option<br>            {%endmcq%}</blockquote><br>
             <p>The <code>{%mcq%}</code> tag (line 1) must have the following arguments for it to work:</p>
             <ul>
-              <li><code>id</code>: a unique identifier for each multiple chocie question (if it is not unique, horrible bugs awaits.)</li>
               <li><code>ans</code>: the id of correct option (possible values: <code>o1</code>, <code>o2</code>, <code>o3</code>, <code>o4</code>, <code>o5</code>, <code>o6</code>, <code>o7</code>, <code>o8</code>).</li>
             </ul>
             <hr>
