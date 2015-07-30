@@ -10,7 +10,8 @@ module.exports = {
   website: {
     assets: "./assets",
       css: [
-        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css",
+        "mcqx.css"
       ],
       js: [
         "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js",
