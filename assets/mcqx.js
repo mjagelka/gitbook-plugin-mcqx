@@ -24,11 +24,23 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 		return o;
 	}
 
-	gitbook.events.bind("page.change", function(){
+	var init = function(){
+
 		$('.mcqBox').each(function(){
 
 			var question = new MultipleChoice($(this).data('config'));
 			var $mcqBox = $(this);
+
+			var correctAnswer = function(){
+				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);
+				$mcqBox.find('.btn.hintMCQ').attr('disabled', true);
+				$mcqBox.find('input[value='+question.ans+']').prop('checked', true);	
+				$mcqBox.find('input[name='+question.qid+'_group]').attr('disabled', true);
+				$mcqBox.find('.MCQmessage').text('Correct.').hide().show();
+
+				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
+				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
+			}
 
 			// prepare options  ---------------------------
 
@@ -56,30 +68,14 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 				$mcqBox.find('.ansHere'+i).html(option.body).siblings('input').val(option.id);
 			});
 
-			var correctAnswer = function(){
-				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);
-				$mcqBox.find('.btn.hintMCQ').attr('disabled', true);
-				$mcqBox.find('input[name='+question.qid+'_group]').attr('disabled', true);
-				$mcqBox.find('.MCQmessage').text('Correct.').show('slow');
-
-				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
-				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
-			}
-
-			// check if the question is already answered before  ---------------------------
-			if(Cookies.get(question.qid))
-				correctAnswer();
-
 			// click handler for submit button ---------------------------
 			$mcqBox.find('.btn.submitMCQ').click(function(){
-
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
-					Cookies.set(question.qid, true); //planting a cookie
+					Cookies.set(question.qid, true, 365); //planting a cookie
 					correctAnswer();
 				}
-				else {
+				else
 					$mcqBox.find('.MCQmessage').text("Wrong answer, try again.").show('slow').delay(1000).hide('slow');
-				}
 			});
 
 			// click handler for hint button ---------------------------
@@ -87,6 +83,11 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 				$(this).removeClass('btn-info').attr('disabled', true);
 				$mcqBox.find('.hint_message').text('('+question.hint+')').show('slow');
 			});
+
+			if(Cookies.get(question.qid))
+				correctAnswer();
 		});
-	});
+	};
+
+	gitbook.events.bind("page.change", init);
 });

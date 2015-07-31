@@ -1,6 +1,6 @@
-.mcqBox(id=question.id, data-config=JSON.stringify(question), style='color: #7F7F7F;')
+.mcqBox(id=question.id, data-config=JSON.stringify(question))
 	.container-fluid
-		!=question.title
+		.MCQtitle!=question.title
 		
 		blockquote
 			p.hint_message
@@ -13,10 +13,10 @@
 				br
 
 			.MCQbutton
-				button.btn.btn-primary.submitMCQ 
+				button.btn.btn-primary.btn-sm.submitMCQ 
 					b Submit
 				-if(question.hint)
-					button.btn.btn-info.hintMCQ
+					button.btn.btn-info.btn-sm.hintMCQ
 						b Hint
 
 		.alert.MCQmessage

@@ -31,6 +31,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.3 releases:
+	* 0.3.2: Fixed font size too big / cookies not saving.
 	* 0.3.1: Fixed css issue.
 	* 0.3.0:
 		* No need to enter a id now. It is now auto-generated.
