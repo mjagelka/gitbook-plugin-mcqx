@@ -31,12 +31,14 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			var question = new MultipleChoice($(this).data('config'));
 			var $mcqBox = $(this);
 
+			$mcqBox.find('.MCQmessage').removeClass('hidden').hide();
+
 			var correctAnswer = function(){
 				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);
 				$mcqBox.find('.btn.hintMCQ').attr('disabled', true);
-				$mcqBox.find('input[value='+question.ans+']').prop('checked', true);	
+				$mcqBox.find('input[value='+question.ans+']').prop('checked', true);
 				$mcqBox.find('input[name='+question.qid+'_group]').attr('disabled', true);
-				$mcqBox.find('.MCQmessage').text('Correct.').hide().show();
+				$mcqBox.find('.MCQmessage').text('Correct.').show('slow');
 
 				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
 				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
@@ -86,6 +88,23 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 
 			if(Cookies.get(question.qid))
 				correctAnswer();
+
+			// handler for dark theme
+			setTimeout(function(){
+				if($('.book').hasClass('color-theme-2')){
+					console.log($('.book').hasClass('color-theme-2'));
+					$mcqBox.addClass('dark');
+				}
+			}, 1);
+
+			$('#color-theme-preview-0, #color-theme-preview-1').click(function(){
+				$mcqBox.removeClass('dark');
+			});
+
+			$('#color-theme-preview-2').click(function(){
+				$mcqBox.addClass('dark');
+			});
+
 		});
 	};
 

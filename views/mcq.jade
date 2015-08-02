@@ -13,11 +13,9 @@
 				br
 
 			.MCQbutton
-				button.btn.btn-primary.btn-sm.submitMCQ 
-					b Submit
+				button.btn.btn-default.btn-sm.submitMCQ Submit
 				-if(question.hint)
-					button.btn.btn-info.btn-sm.hintMCQ
-						b Hint
+					button.btn.btn-default.btn-sm.hintMCQ Hint
 
-		.alert.MCQmessage
+		.alert.MCQmessage.hidden
 		.MCQdescription

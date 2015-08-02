@@ -1,12 +1,56 @@
-.mcqBox {font-size: small;}
-.mcqBox > .container-fluid > blockquote {font-size: small;}
+.mcqBox {
+  padding-top: 20px;
+  border: 8px solid #F5F5F5;
+  border-radius: 5px;
+  color: black;
+}
 
-.hint_message {color: grey; display: none; margin-bottom: 10px;}
+.mcqBox.dark {
+  border: 8px solid #373B4E;
+  color: white;
+}
 
-.MCQbutton {display: inline-block; margin-top: 15px;}
-.submitMCQ {margin-right: 10px;}
+.mcqBox > .container-fluid > blockquote {
+  font-size: 15px;
+  color: black !important;
+}
 
-.MCQmessage {margin-top: 20px; display: none;}
+.mcqBox.dark > .container-fluid > blockquote {
+  color: white !important;
+}
 
-.MCQoption {display: inline-block;}
-.MCQdescription {margin-top: 5px; margin-bottom: 5px; margin-left: 10px; font-size: smaller; display: none;}
+.mcqBox.dark > .container-fluid > .MCQmessage {
+  background-color: #373B4E !important;
+  color: white;
+}
+
+.hint_message {
+  color: grey;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.MCQbutton {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.submitMCQ {
+  margin-right: 3px;
+}
+
+.MCQoption {
+  display: inline-block;
+}
+
+.MCQdescription {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  font-size: small;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

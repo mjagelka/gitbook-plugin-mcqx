@@ -30,33 +30,42 @@ Please not that the plugin is still in active development, so the syntax is subj
 
 ## Changelog
 
+* 0.4 releases:
+	* **0.4.0:**
+		* Improved looks.
+		* Added animation back.
+
+
 * 0.3 releases:
-	* 0.3.2: Fixed font size too big / cookies not saving.
-	* 0.3.1: Fixed css issue.
-	* 0.3.0:
+	* **0.3.2:** Fixed font size too big / cookies not saving.
+	* **0.3.1:** Fixed css issue.
+	* **0.3.0:**
 		* No need to enter a id now. It is now auto-generated.
 		* Simplified code, the plugin will now work quicker.
 		* Improved looks in website.
 		* Improved looks in .pdf - answer will now be displayed upside down.
 		* Added markdown support for question title.
 
+
 * 0.2 releases:
-	* 0.2.2: Updated looks when exported to .pdf.
-	* 0.2.1: Updated README only. No need to upgrade the plugin.
-	* 0.2.0: Added code generator, no more need to learn the syntax!
+	* **0.2.2:** Updated looks when exported to .pdf.
+	* **0.2.1:** Updated README only. No need to upgrade the plugin.
+	* **0.2.0:** Added code generator, no more need to learn the syntax!
+
 
 * 0.1 releases:
-	* 0.1.4: Fixed animation.
-	* 0.1.3: Allow addition of answer description. Improved dark theme appearance.
-	* 0.1.2: Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
-	* 0.1.1: Improved options shuffling algorithm.
-	* 0.1.0: You can now randomize order of options and include questions with up to 8 options.
+	* **0.1.4:** Fixed animation.
+	* **0.1.3:** Allow addition of answer description. Improved dark theme appearance.
+	* **0.1.2:** Fixed a terrible typo in ```package.json``` that cause 0.1.1 to be not working.
+	* **0.1.1:** Improved options shuffling algorithm.
+	* **0.1.0:** You can now randomize order of options and include questions with up to 8 options.
+
 
 * 0.0 releases:
-	* 0.0.4: Fixed bug related to ```gitbook-plugin-sectionx``` integration.
-	* 0.0.3: Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
-	* 0.0.2: Added cookies support: answered question will be disabled.
-	* 0.0.1: Initial release.
+	* **0.0.4:** Fixed bug related to ```gitbook-plugin-sectionx``` integration.
+	* **0.0.3:** Integration with my other plugin ```gitbook-plugin-sectionx``` to allow you to toggle new section once the correct answer is chosen (use ```target``` paramater to control it, see below).
+	* **0.0.2:** Added cookies support: answered question will be disabled.
+	* **0.0.1:** Initial release.
 
 ## Usage
 
