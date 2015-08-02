@@ -32,6 +32,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			var $mcqBox = $(this);
 
 			$mcqBox.find('.MCQmessage').removeClass('hidden').hide();
+			$mcqBox.find('.MCQdescription').removeClass('hidden').hide();
 
 			var correctAnswer = function(){
 				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);

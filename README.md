@@ -31,6 +31,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.4 releases:
+	* **0.4.1:** Fixed bug that make text in ```{%message%}``` not appearing.
 	* **0.4.0:**
 		* Improved looks.
 		* Added animation back.
