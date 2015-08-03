@@ -12,7 +12,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 		if(input.count) this.count = input.count;
 		if(input.random) this.random = input.random;
 		if(input.message) this.message = input.message;
-	};
+	}
 
 	MultipleChoice.prototype.checkAns = function(input){
 		return input===this.ans;
@@ -22,7 +22,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 		var o = this;
 		for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 		return o;
-	}
+	};
 
 	var init = function(){
 
@@ -34,21 +34,23 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			$mcqBox.find('.MCQmessage').removeClass('hidden').hide();
 			$mcqBox.find('.MCQdescription').removeClass('hidden').hide();
 
-			var correctAnswer = function(){
+			var correctAnswer = function(animation){
 				$mcqBox.find('.btn.submitMCQ').attr('disabled', true);
 				$mcqBox.find('.btn.hintMCQ').attr('disabled', true);
 				$mcqBox.find('input[value='+question.ans+']').prop('checked', true);
 				$mcqBox.find('input[name='+question.qid+'_group]').attr('disabled', true);
-				$mcqBox.find('.MCQmessage').text('Correct.').show('slow');
 
-				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show('slow');
+				var speed = animation? 'slow': null;
+				$mcqBox.find('.MCQmessage').text('Correct.').show(speed);
+
+				if(question.message)	$mcqBox.find('.MCQdescription').text(question.message).show(speed);
 				if(question.target && typeof sectionToggle === "function")	sectionToggle(question.target);
-			}
+			};
 
 			// prepare options  ---------------------------
-
+			var optionsToShow = [];
 			if(question.random || question.count < question.option.length){
-				var optionsToShow = [], randomIndex = [];
+				var randomIndex = [];
 				for(var i=0; i<question.option.length; i++)
 					if(question.option[i].id != question.ans)
 						randomIndex.push(i);
@@ -75,10 +77,11 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			$mcqBox.find('.btn.submitMCQ').click(function(){
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
 					Cookies.set(question.qid, true, 365); //planting a cookie
-					correctAnswer();
+					correctAnswer(true);
 				}
-				else
+				else {
 					$mcqBox.find('.MCQmessage').text("Wrong answer, try again.").show('slow').delay(1000).hide('slow');
+				}
 			});
 
 			// click handler for hint button ---------------------------
@@ -88,7 +91,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			});
 
 			if(Cookies.get(question.qid))
-				correctAnswer();
+				correctAnswer(false);
 
 			// handler for dark theme
 			setTimeout(function(){
@@ -105,9 +108,9 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			$('#color-theme-preview-2').click(function(){
 				$mcqBox.addClass('dark');
 			});
-
 		});
 	};
 
 	gitbook.events.bind("page.change", init);
+
 });
