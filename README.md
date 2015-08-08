@@ -30,6 +30,9 @@ Please not that the plugin is still in active development, so the syntax is subj
 
 ## Changelog
 
+* 0.5 releases:
+	* **0.5.0:** Added clear history button that will reset all the questions in the current page as unanswered.
+
 * 0.4 releases:
 	* **0.4.2:** Fixed choppy animation.
 	* **0.4.1:** Fixed bug that make text in ```{%message%}``` not appearing.
