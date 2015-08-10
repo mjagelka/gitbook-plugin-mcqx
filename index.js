@@ -49,7 +49,7 @@ module.exports = {
           fs.readFileSync(path.resolve(__dirname, "./views/mcq.jade")):
           fs.readFileSync(path.resolve(__dirname, "./views/mcq_pdf.jade")));
 
-        return jade.render(mcqView, {question: question});
+        return '<div class="mcqx">' + jade.render(mcqView, {question: question}) + '</div>';
       }
     }
   }
