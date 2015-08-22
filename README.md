@@ -31,6 +31,7 @@ Please not that the plugin is still in active development, so the syntax is subj
 ## Changelog
 
 * 0.5 releases:
+	* **0.5.2:** Fixed cookies not persisting bug.
 	* **0.5.1:** Improved code base. You can safely ignored this update.
 	* **0.5.0:** Added clear history button that will reset all the questions in the current page as unanswered.
 

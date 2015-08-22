@@ -89,7 +89,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			// click handler for submit button ---------------------------
 			$mcqBox.find('.btn.submitMCQ').click(function(){
 				if(question.checkAns($('input[name=' + question.qid + '_group]:checked').val())){
-					Cookies.set(question.qid, true, 365); //planting a cookie
+					Cookies.set(question.qid, true, {expires: 365}); //planting a cookie
 					correctAnswer(true);
 				}
 				else {
