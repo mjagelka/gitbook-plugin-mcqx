@@ -12,30 +12,30 @@ var codeUpdate = function(){
 	code.push({id:'o6', body:''});
 	code.push({id:'o7', body:''});
 	code.push({id:'o8', body:''});
-	code.push({id:'hint', body: ''})
-	code.push({id:'message', body: ''})
+	code.push({id:'hint', body: ''});
+	code.push({id:'message', body: ''});
 	code.push({id:'end', body:'{%endmcq%}'});
 
 	var replaceInCode = function(id, replace){
 		$.grep(code, function(e){ return e.id == id; })[0].body = replace;
-	}
+	};
 
 	var hasContent = function(id){
 		id = '#' + id;
 		return $(id).val().length > 0;
-	}
+	};
 
 	var getContent = function(id){
 		id = '#' + id;
 		return $(id).val().trim();
-	}
+	};
 
 	var insufficientInfo = function(){
 		$('#output').text("Insufficient information (please fill in all the required boxes)");
 
 		if(!$('#output_selectAll').hasClass('disabled'))
 			$('#output_selectAll').addClass('disabled');
-	}
+	};
 
 	if( !hasContent('input_title') ||
 		getContent('input_qCount option:selected')=='auto' ||
@@ -57,12 +57,9 @@ var codeUpdate = function(){
 			start.push("ans='o" + getContent('input_ans option:selected') + "'");
 
 		if($('#input_shuffle').is(':checked'))
-			start.push("random=true")
+			start.push("random=true");
 
-		if(hasContent('input_sectionx'))
-			start.push("target='" + getContent('input_sectionx') + "'")
-
-		replaceInCode('start', '{%mcq ' + start.join(', ') + ' %}')
+		replaceInCode('start', '{%mcq ' + start.join(', ') + ' %}');
 
 		// handle all the sub-blocks ----------
 
