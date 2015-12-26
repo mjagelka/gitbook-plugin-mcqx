@@ -8,6 +8,10 @@ Syntax too complicated? Use the code generator in the [plugin homepage](http://y
 
 ![](http://i.imgur.com/AD1C50h.gif)
 
+## Changelog
+
+* **0.1.0:** Clear history button fixed.
+
 ## Feature List
 
 This is a multiple choice plugin developed for GitBook, packed with interactive features including:
